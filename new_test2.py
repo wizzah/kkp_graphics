@@ -22,17 +22,23 @@ def gen_coords(coord, img):
 	else:
 		print (total_height - img.frames[0].image.height)
 		return randint(0, (total_height - img.frames[0].image.height))
-gen_coords("x", test)
 
 #if random is too slow, make a list of set points inside the bounding box
 
 
+group_test = pyglet.graphics.OrderedGroup(0)
+group_test2 = pyglet.graphics.OrderedGroup(1)
+
 #randomly generate coordinates in the screen boundary
 sprites = [
-	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test)),
-	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test)),
-	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test)),
-	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test))
+	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test), group=group_test),
+	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test), group=group_test2),
+	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test), group=group_test),
+	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test), group=group_test2),
+	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test), group=group_test),
+	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test), group=group_test2),
+	pyglet.sprite.Sprite(test, batch=batch, x=gen_coords("x", test), y=gen_coords("y", test), group=group_test),
+	pyglet.sprite.Sprite(other_test, batch=batch, x=gen_coords("x", other_test), y=gen_coords("y", other_test), group=group_test2)
 ]
 
 # height = int(test.get_max_height())
